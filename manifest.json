@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Creator Stats for YouTube",
+  "short_name": "Creator Stats",
+  "version": "1.0.0",
+  "description": "Views per day, like-to-view ratio, title length and tag/description word counts on YouTube watch pages, channel Videos tabs and Studio. Reads only the visible page. Local only.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*", "https://studio.youtube.com/*"],
+  "action": {"default_popup": "popup.html", "default_title": "Creator Stats",
+    "default_icon": {"16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png"}},
+  "content_scripts": [{"matches": ["https://www.youtube.com/*", "https://studio.youtube.com/*"], "js": ["lib.js", "content.js"], "all_frames": false, "run_at": "document_idle"}],
+  "icons": {"16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
+  "browser_specific_settings": {"gecko": {"id": "creator-stats-yt@usekingai.com", "strict_min_version": "140.0",
+    "data_collection_permissions": {"required": ["none"]}},
+    "gecko_android": {"strict_min_version": "142.0"}}
+}
